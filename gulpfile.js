@@ -33,7 +33,7 @@ gulp.task('build', function () {
   /* deep copy하는 모듈설정 와야함*/
   /* build 실패시 서버안끊기도록 하는 소스 와야함*/
 
-	return browserify(config.src.js + '/main.js')
+	return browserify(config.src.js + '/index.js')
 		.transform(babelify, {presets: ['es2015']})
 		.bundle()
 		.pipe(source('bundle.js'))

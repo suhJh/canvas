@@ -19,6 +19,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "google-code-prettify": "^1.0.5",
-    "json2": "*"
+    "json2": "*",
+    "jquery": "^3.1.1"
   }
 }
