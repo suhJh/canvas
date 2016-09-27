@@ -2,7 +2,7 @@
   "name": "canvas",
   "version": "1.0.0",
   "description": "this is my first canvas app using pure javascript and html5",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
