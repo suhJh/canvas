@@ -1,0 +1,28 @@
+{
+  "name": "canvas",
+  "version": "1.0.0",
+  "description": "this is my first canvas app using pure javascript and html5",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "canvas"
+  ],
+  "author": "sjh",
+  "license": "ISC",
+  "dependencies": {
+    "superagent": "^2.2.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "browser-sync": "^2.14.0",
+    "babelify": "^7.3.0",
+    "browserfy": "^1.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
