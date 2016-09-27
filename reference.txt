@@ -1,7 +1,10 @@
 
-express 설정
+express 설정 및 소개 블로그
 http://webframeworks.kr/getstarted/expressjs/
 
+https://www.npmjs.com/package/gulp-express
+
+http://wikibook.co.kr/article/what-is-expressjs/
 
 
 
