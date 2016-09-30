@@ -1,5 +1,5 @@
-const src = 'src';
-const dist = 'public';
+const src = 'public/src';
+const dist = 'public/dist';
 
 
 
@@ -7,14 +7,15 @@ module.exports = {
     src : {
         js : src + '/js',
         css : src + '/css',
-        bower : dist + '/bower',
-        html : dist
+        html : src,
+        img : src + '/img'
     },
     dist :{
-        bundle : dist + '/js/build',
+        bundle : dist + '/js',
         js : dist + '/js',
         css : dist + '/css,',
         bower : dist + '/bower',
-        html : dist
+        html : dist,
+        img : dist + '/img'
     }
 };
