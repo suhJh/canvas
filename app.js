@@ -9,5 +9,4 @@ app.use(express.static(__dirname + '/public/dist/bower'));
 app.get('/', function(req, res) {
     res.sendFile( __dirname + '/public/dist/index.html');
 });
-
 app.listen(8080);

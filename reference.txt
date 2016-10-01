@@ -6,7 +6,8 @@ https://www.npmjs.com/package/gulp-express
 
 http://wikibook.co.kr/article/what-is-expressjs/
 
-
+//official
+http://expressjs.com/ko/starter/static-files.html
 
 
 캔버스 튜토리얼 강의
