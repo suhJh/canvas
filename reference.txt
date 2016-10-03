@@ -12,3 +12,24 @@ http://expressjs.com/ko/starter/static-files.html
 
 캔버스 튜토리얼 강의
 http://unikys.tistory.com/274
+
+https://developer.mozilla.org/ko/docs/Canvas_tutorial/Basic_usage
+http://joshondesign.com/p/books/canvasdeepdive/toc.html
+
+
+react로 메모앱만드는거
+https://velopert.com/1921
+
+
+grunt 와 gulp 비교.
+https://blog.outsider.ne.kr/1181
+
+
+
+promise 패턴
+https://justhackem.wordpress.com/2013/12/28/javascript-csharp-async/
+http://www.html5rocks.com/ko/tutorials/es6/promises/
+
+
+browserify 예시
+https://github.com/substack/node-browserify#usage
