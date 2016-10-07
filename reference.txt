@@ -24,6 +24,8 @@ https://velopert.com/1921
 grunt 와 gulp 비교.
 https://blog.outsider.ne.kr/1181
 
+//airbnb style guide
+http://airbnb.io/javascript/
 
 
 promise 패턴

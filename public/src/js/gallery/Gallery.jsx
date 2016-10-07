@@ -4,13 +4,13 @@ import deepnight from './deepnight';
 
 const Gallery = React.createClass({
   propTypes: {
-    gallery: React.propTypes.string.isRequired,
-    description: React.propTypes.string.isRequired
+    gallery: React.PropTypes.string.isRequired,
+    description: React.PropTypes.string.isRequired,
   },
   getDefaultProps() {
     return {
       gallery: 'deepnight',
-      description : '이것은 잠이 오지않는 밤 어지러운 머리속을 형상화한 작품이다.'
+      description: '이것은 잠이 오지않는 밤 어지러운 머리속을 형상화한 작품이다.',
     };
   },
   componentDidMount() {
@@ -19,6 +19,7 @@ const Gallery = React.createClass({
     deepnight(canvas, context);
   },
   render() {
+    console.log(this.props.gallery);
     const canvasStyle = {
       width: '100%',
       height: '600px',
@@ -41,5 +42,4 @@ const Gallery = React.createClass({
     );
   },
 });
-
 export default Gallery;
