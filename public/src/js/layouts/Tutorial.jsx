@@ -17,11 +17,7 @@ const Tutorial = React.createClass({
         </Col>
       </Row>
     );
-  }
-
-
-
-
+  },
 });
 
 
