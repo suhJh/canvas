@@ -4,6 +4,8 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { Container, Tutorial } from './layouts';
 import { Gallery } from './gallery';
 import { TestArea } from './testarea';
+import TodoApp from './redux';
+
 
 class NoMatch extends React.PureComponent {
   getDefaultProps() {
@@ -27,7 +29,7 @@ ReactDOM.render(
     <Route path="/" component={Container}>
       <IndexRoute component={Tutorial} />
       <Route path="/tutorials" component={Tutorial} />
-      <Route path="/testarea" component={TestArea} />
+      <Route path="/testarea" component={TodoApp} />
       <Route path="/gallery" component={Gallery} />
     </Route>
     <Route path="*" component={NoMatch} />

@@ -114,5 +114,5 @@ gulp.task('build', () => {
 gulp.task('watch', () => {
   gulp.watch(config.src.img + '/**/*.jpg', ['copy']).on('change', browserSync.reload);
   gulp.watch(config.src.html + '/**/*.html', ['copy']).on('change', browserSync.reload);
-  gulp.watch(config.src.js + '/**/*.*', ['build']).on('change', browserSync.reload);
+  gulp.watch(config.src.js + '/**/*.*', ['build']);//.on('change', browserSync.reload);
 });

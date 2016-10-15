@@ -35,3 +35,6 @@ http://www.html5rocks.com/ko/tutorials/es6/promises/
 
 browserify 예시
 https://github.com/substack/node-browserify#usage
+
+리액트 es6 스타일 가이드
+http://www.newmediacampaigns.com/blog/refactoring-react-components-to-es6-classes

@@ -14,8 +14,8 @@ app.use(express.static(path.join(__dirname, '/public/dist/css')));
 app.use(express.static(path.join(__dirname, '/public/dist/bower')));
 
 app.get('*', (req, res) => {
-  //res.sendFile(path.join(__dirname, '/public/dist/index.html'));
-  res.sendFile(path.join(__dirname, '/public/dist/newWTS.html'));
+  res.sendFile(path.join(__dirname, '/public/dist/index.html'));
+  //res.sendFile(path.join(__dirname, '/public/dist/newWTS.html'));
 });
 app.listen(port, () => {
   console.log('Express is listening on port', port);
