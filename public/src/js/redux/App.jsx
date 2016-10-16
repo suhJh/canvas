@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from './actions';
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
 import Footer from './Footer';
 
-class App extends React.PureComponent {
+class App extends Component {
   render() {
     // connect() 호출을 통해 주입됨:
     const { dispatch, visibleTodos, visibilityFilter } = this.props;
@@ -18,8 +18,8 @@ class App extends React.PureComponent {
         />
         <TodoList
           todos={visibleTodos}
-          onTodoClick={index =>
-            dispatch(completeTodo(index))
+          onTodoClick={id =>
+            dispatch(completeTodo(id))
           }
         />
         <Footer

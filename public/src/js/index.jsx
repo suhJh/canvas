@@ -15,7 +15,7 @@ class NoMatch extends React.PureComponent {
   }
 
   render() {
-    const noMatchTitle = this.props.noMatchTitle || '요청하신 페이지가 존재하지 않습니다.';
+    const noMatchTitle = this.props.noMatchTitle;
     return <div>{noMatchTitle}</div>;
   }
 }
@@ -29,7 +29,8 @@ ReactDOM.render(
     <Route path="/" component={Container}>
       <IndexRoute component={Tutorial} />
       <Route path="/tutorials" component={Tutorial} />
-      <Route path="/testarea" component={TodoApp} />
+      <Route path="/todos" component={TodoApp} />
+      <Route path="/reddit" component={TodoApp} />
       <Route path="/gallery" component={Gallery} />
     </Route>
     <Route path="*" component={NoMatch} />

@@ -3,8 +3,9 @@ import NavItem from './NavItem';
 
 const menus = [
   { menuId: '1', to: '/tutorials', dp: '튜토리얼' },
-  { menuId: '2', to: '/testarea', dp: '테스트' },
-  { menuId: '3', to: '/gallery', dp: '갤러리' },
+  { menuId: '2', to: '/todos', dp: 'todos' },
+  { menuId: '3', to: '/reddit', dp: 'reddit' },
+  { menuId: '4', to: '/gallery', dp: '갤러리' },
 ];
 const NavBar = React.createClass({
   propTypes: {

@@ -6,6 +6,7 @@ const config = require('./config/gulp-config');
 const babelify = require('babelify');
 
 const browserify = require('browserify');
+const watchify = require('watchify');
 
 //  const buffer = require("vinyl-buffer"); //depre
 //  const uglify = require("gulp-uglify");  //depre

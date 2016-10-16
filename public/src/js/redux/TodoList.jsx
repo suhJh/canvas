@@ -16,11 +16,11 @@ export default class TodoList extends Component {
         </div>
         <div className="panel-body" style={{ minHeight: '200px' }}>
           <ul className="list-group" >
-            {this.props.todos.map((todo, index) =>
+            {this.props.todos.map(todo =>
               <Todo
                 {...todo}
-                key={index}
-                onClick={() => this.props.onTodoClick(index)}
+                key={todo.id}
+                onClick={() => this.props.onTodoClick(todo.id)}
               />
             )}
           </ul>
