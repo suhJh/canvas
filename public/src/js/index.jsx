@@ -5,6 +5,7 @@ import { Container, Tutorial } from './layouts';
 import { Gallery } from './gallery';
 import { TestArea } from './testarea';
 import TodoApp from './redux';
+import Reddit from './reddit';
 
 
 class NoMatch extends React.PureComponent {
@@ -30,7 +31,7 @@ ReactDOM.render(
       <IndexRoute component={Tutorial} />
       <Route path="/tutorials" component={Tutorial} />
       <Route path="/todos" component={TodoApp} />
-      <Route path="/reddit" component={TodoApp} />
+      <Route path="/reddit" component={Reddit} />
       <Route path="/gallery" component={Gallery} />
     </Route>
     <Route path="*" component={NoMatch} />
