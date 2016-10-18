@@ -35,13 +35,15 @@ class AsyncApp extends Component {
     dispatch(fetchPostsIfNeeded(selectedReddit));
   }
 
-  render () {
+  render() {
     const { selectedReddit, posts, isFetching, lastUpdated } = this.props;
     return (
       <div>
-        <Picker value={selectedReddit}
-                onChange={this.handleChange}
-                options={['reactjs', 'frontend']} />
+        <Picker
+          value={selectedReddit}
+          onChange={this.handleChange}
+          options={['reactjs', 'frontend']}
+        />
         <p>
           {lastUpdated &&
             <span>
@@ -50,10 +52,9 @@ class AsyncApp extends Component {
             </span>
           }
           {!isFetching &&
-            <a href='#'
-               onClick={this.handleRefreshClick}>
+            <button onClick={this.handleRefreshClick}>
               Refresh
-            </a>
+            </button>
           }
         </p>
         {isFetching && posts.length === 0 &&
@@ -77,7 +78,7 @@ AsyncApp.propTypes = {
   posts: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
   lastUpdated: PropTypes.number,
-  dispatch: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -85,17 +86,17 @@ function mapStateToProps(state) {
   const {
     isFetching,
     lastUpdated,
-    items: posts
+    items: posts,
   } = postsByReddit[selectedReddit] || {
     isFetching: true,
-    items: []
+    items: [],
   };
 
   return {
     selectedReddit,
     posts,
     isFetching,
-    lastUpdated
+    lastUpdated,
   };
 }
 

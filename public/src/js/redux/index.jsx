@@ -12,11 +12,11 @@ const store = createStore(todoApp);
 const next = store.dispatch;
 
 store.dispatch = function dispatchAndLog(action) {
-  console.log('dispatching', action);
+  console.log('dispatchzzzzzzzzzing', action);
   const result = next(action);
   console.log('next state', store.getState());
   return result;
-}
+};
 
 const Re = React.createClass({
   render() {
