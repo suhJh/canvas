@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from './actions';
+import { addTodo, completeTodo, deleteTodo, setVisibilityFilter, VisibilityFilters } from './actions';
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
 import Footer from './Footer';
@@ -13,14 +13,18 @@ class App extends Component {
     return (
       <div className="container">
         <AddTodo
-          onAddClick={text =>
-            dispatch(addTodo(text))
-          }
+          onAddClick={(text) => {
+            dispatch(addTodo(text));
+            dispatch(setVisibilityFilter('SHOW_ALL'));
+          }}
         />
         <TodoList
           todos={visibleTodos}
           onTodoClick={id =>
             dispatch(completeTodo(id))
+          }
+          onDeleteClick={id =>
+            dispatch(deleteTodo(id))
           }
         />
         <Footer
@@ -89,8 +93,7 @@ function select(state) {
   return {
     visibleTodos: selectTodos(state.todos, state.visibilityFilter),
     visibilityFilter: state.visibilityFilter,
-    count: filter => countTodos(state.todos, filter)
-    ,
+    count: filter => countTodos(state.todos, filter),
   };
 }
 
