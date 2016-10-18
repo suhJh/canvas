@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class Footer extends Component {
-  renderFilter(filter, name, type) {
+  renderFilter(filter, name) {
     if (filter === this.props.filter) {
       return (
         <button
           className="btn btn-primary"
         >
-          {name + '' + this.props.countTodos(type)}
+          {name + ' '}
+          <span className="badge">{this.props.count(filter)}</span>
         </button>
       );
     }
@@ -19,7 +20,8 @@ export default class Footer extends Component {
           this.props.onFilterChange(filter);
         }}
       >
-        {name + '' + this.props.countTodos(type)}
+        {name + ' '}
+        <span className="badge">{this.props.count(filter)}</span>
       </button>
     );
   }
@@ -28,19 +30,19 @@ export default class Footer extends Component {
     return (
       <div className="btn-group">
         {this.renderFilter('SHOW_ALL', '모두')}
-        {this.renderFilter('SHOW_COMPLETED', '완료', 'COMPLETED')}
-        {this.renderFilter('SHOW_ACTIVE', '진행 중', 'ACTIVE')}
+        {this.renderFilter('SHOW_COMPLETED', '완료')}
+        {this.renderFilter('SHOW_ACTIVE', '진행 중')}
       </div>
     );
   }
 }
 
 Footer.propTypes = {
-  countTodos: PropTypes.func.isRequired,
   onFilterChange: PropTypes.func.isRequired,
   filter: PropTypes.oneOf([
     'SHOW_ALL',
     'SHOW_COMPLETED',
     'SHOW_ACTIVE',
   ]).isRequired,
+  count: PropTypes.func.isRequired,
 };

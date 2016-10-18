@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, SET_COUNT_FILTER, VisibilityFilters, CountFilters } from './actions';
+import { ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters } from './actions';
 
 const { SHOW_ALL } = VisibilityFilters;
-const { COMPLETED } = CountFilters;
+
 
 function visibilityFilter(state = SHOW_ALL, action) {
   switch (action.type) {
@@ -12,16 +12,6 @@ function visibilityFilter(state = SHOW_ALL, action) {
       return state;
   }
 }
-
-function countTodosFilter(state = COMPLETED, action) {
-  switch (action.type) {
-    case SET_COUNT_FILTER:
-      return action.filter;
-    default:
-      return state;
-  }
-}
-
 
 function createUUID() {
     // http://www.ietf.org/rfc/rfc4122.txt
@@ -40,7 +30,7 @@ function createUUID() {
   return uuid;
 }
 
-function getindex(state=[], id) {
+function getindex(state = [], id) {
   let index = -1;
   for (let i = 0; i < state.length; i += 1) {
     if (state[i].id === id) {
@@ -78,7 +68,6 @@ function todos(state = [], action) {
 const todoApp = combineReducers({
   visibilityFilter,
   todos,
-  countTodosFilter,
 });
 
 export default todoApp;
