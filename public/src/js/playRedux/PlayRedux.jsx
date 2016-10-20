@@ -18,11 +18,15 @@ store.dispatch = function dispatchAndLog(action) {
 export default class PlayRedux extends Component {
   render() {
     return (
-      <div>
-        <h1>playRedux!</h1>
-        <Provider store={store}>
-          <App />
-        </Provider>
+      <div className="container">
+        <div className="row">
+          <div className="page-header">
+            <h1>playRedux!</h1>
+          </div>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </div>
       </div>
     );
   }

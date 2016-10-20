@@ -11,11 +11,11 @@ const Tutorial = React.createClass({
   },
   render() {
     return (
-      <Row>
-        <Col lg={12} sm={6} md={6}>
+      <div className="row">
+        <div className="col-lg-12 col-sm-6 col-md-6">
           <canvas id='canvas' width='800' height='800'></canvas>
-        </Col>
-      </Row>
+        </div>
+      </div>
     );
   },
 });

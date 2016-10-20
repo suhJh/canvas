@@ -1,35 +1,32 @@
 
-import React from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 
-const NavItem = React.createClass({
-  propTypes: {
-    to: React.PropTypes.string.isRequired,
-    currentMenu: React.PropTypes.string.isRequired,
-    handleClick: React.PropTypes.func.isRequired,
-    menuId: React.PropTypes.string.isRequired,
-  },
-  getDefaultProps() {
-    return {
-      to: '/',
-      menuId: '1',
-      currentMenu: '1',
-    };
-  },
-  handleClick() {
-    this.props.handleClick(this.props.menuId);
-  },
 
+export default class NavItem extends Component {
   render() {
-    const selectedOrNot = this.props.currentMenu === this.props.menuId ? 'active' : '';
+    const active = this.props.currentMenu === this.props.menuId ? 'active' : '';
+    const { children, to, handleClick, menuId } = this.props;
     return (
-      <li className={selectedOrNot} role="presentation">
-        <Link to={this.props.to} onClick={this.handleClick}>
-          {this.props.children}
+      <li className={active} role="presentation" style={{ minWidth: '100px' }}>
+        <Link to={to} onClick={() => { handleClick(menuId); }}>
+          {children}
         </Link>
       </li>
     );
-  },
-});
+  }
+}
 
-export default NavItem;
+NavItem.propTypes = {
+  to: PropTypes.string.isRequired,
+  currentMenu: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  menuId: PropTypes.string.isRequired,
+  children: React.PropTypes.node,
+};
+
+NavItem.defaultProps = {
+  to: '/',
+  menuId: '1',
+  currentMenu: '1',
+};
