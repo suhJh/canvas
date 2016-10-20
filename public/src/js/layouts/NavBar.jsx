@@ -5,7 +5,8 @@ const menus = [
   { menuId: '1', to: '/tutorials', dp: '튜토리얼' },
   { menuId: '2', to: '/todos', dp: 'todos' },
   { menuId: '3', to: '/reddit', dp: 'reddit' },
-  { menuId: '4', to: '/gallery', dp: '갤러리' },
+  { menuId: '4', to: '/playRedux', dp: 'playRedux' },
+  { menuId: '5', to: '/gallery', dp: '갤러리' },
 ];
 const NavBar = React.createClass({
   propTypes: {
@@ -21,8 +22,8 @@ const NavBar = React.createClass({
     this.props.selectMenu(menuId);
   },
   render() {
-    const navies = menus.map((it) => {
-      return (
+    const navies = menus.map(
+      it => (
         <NavItem
           key={it.menuId}
           currentMenu={this.props.currentMenu}
@@ -32,8 +33,8 @@ const NavBar = React.createClass({
         >
           {it.dp}
         </NavItem>
-      );
-    });
+      )
+    );
     return (
       <div className="nav nav-tabs">
         {navies}

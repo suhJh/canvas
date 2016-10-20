@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { Container, Tutorial } from './layouts';
 import { Gallery } from './gallery';
-import { TestArea } from './testarea';
+//  import { TestArea } from './testarea';
 import TodoApp from './redux';
 import Reddit from './reddit';
+import PlayRedux from './playRedux';
 
 
 class NoMatch extends React.PureComponent {
@@ -16,7 +17,7 @@ class NoMatch extends React.PureComponent {
   }
 
   render() {
-    const noMatchTitle = this.props.noMatchTitle;
+    const { noMatchTitle } = this.props;
     return <div>{noMatchTitle}</div>;
   }
 }
@@ -32,6 +33,7 @@ ReactDOM.render(
       <Route path="/tutorials" component={Tutorial} />
       <Route path="/todos" component={TodoApp} />
       <Route path="/reddit" component={Reddit} />
+      <Route path="/playRedux" component={PlayRedux} />
       <Route path="/gallery" component={Gallery} />
     </Route>
     <Route path="*" component={NoMatch} />
