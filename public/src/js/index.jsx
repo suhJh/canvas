@@ -1,30 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
-import { Container, Tutorial } from './layouts';
+import { Container, Tutorial, NoMatch } from './layouts';
 import { Gallery } from './gallery';
 //  import { TestArea } from './testarea';
 import TodoApp from './redux';
 import Reddit from './reddit';
 import PlayRedux from './playRedux';
-
-
-class NoMatch extends React.PureComponent {
-  getDefaultProps() {
-    return {
-      noMatchTitle: '요청하신 페이지가 존재하지 않습니다.',
-    };
-  }
-
-  render() {
-    const { noMatchTitle } = this.props;
-    return <div>{noMatchTitle}</div>;
-  }
-}
-
-NoMatch.PropTypes = {
-  noMatchTitle: React.PropTypes.string,
-};
 
 ReactDOM.render(
   <Router history={browserHistory}>
