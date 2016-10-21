@@ -1,41 +1,42 @@
-import React from 'react';
-
-import { Grid, Row, PageHeader } from 'react-bootstrap';
-
+import React, { PropTypes, Component } from 'react';
 import NavBar from './NavBar';
 
-
-const Container = React.createClass({
-  propTypes: {
-    title: React.PropTypes.string.isRequired,
-  },
-  getDefaultProps() {
-    return { title: 'Hello canvas!' };
-  },
-  getInitialState() {
-    return {
-      currentMenu: '1',
-    };
-  },
-  selectMenu(currentMenu) {
-    this.setState({ currentMenu });
-  },
+export default class Container extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { currentMenu: '1' };
+  }
   render() {
+    const menus = [
+      { menuId: '1', to: '/tutorials', dp: '튜토리얼' },
+      { menuId: '2', to: '/todos', dp: 'todos' },
+      { menuId: '3', to: '/reddit', dp: 'reddit' },
+      { menuId: '4', to: '/playRedux', dp: 'playRedux' },
+      { menuId: '5', to: '/gallery', dp: '갤러리' },
+    ];
     return (
-      <Grid>
-        <Row>
-          <PageHeader >
-            { this.props.title }
-          </PageHeader>
-        </Row>
-        <Row>
-          <NavBar currentMenu={this.state.currentMenu} selectMenu={this.selectMenu} />
-        </Row>
+      <div>
+        <div className="jumbotron" style={{ paddingLeft: '50px' }}>
+          <h1>{this.props.title}</h1>
+        </div>
+        <div className="container">
+          <NavBar
+            currentMenu={this.state.currentMenu}
+            selectMenu={(currentMenu) => { this.setState({ currentMenu }); }}
+            menus={menus}
+          />
+        </div>
         { this.props.children }
-      </Grid>
+      </div>
    );
   }
-});
+}
 
+Container.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node,
+};
 
-export default Container;
+Container.defaultProps = {
+  title: 'Hello canvas!',
+};
