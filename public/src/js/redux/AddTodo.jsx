@@ -5,7 +5,10 @@ export default class AddTodo extends Component {
     super(props);
     this.handleClick = this.handleClick.bind(this); //  요거때문에 개 삽질 어휴
   }
-  handleClick() {
+  handleClick(e) {
+    if (e && e.key !== 'Enter') {
+      return;
+    }
     if (this.text !== null && this.text.value !== '') {
       const trimmed = this.text.value.trim();
       this.props.onAddClick(trimmed);
@@ -21,6 +24,7 @@ export default class AddTodo extends Component {
           type="text"
           placeholder="할 일을 입력하세요."
           ref={(ref) => { this.text = ref; }}
+          onKeyPress={this.handleClick}
         />
         <span className="input-group-btn">
           <button

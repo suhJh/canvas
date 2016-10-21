@@ -2,31 +2,31 @@ const gulp = require('gulp');
 
 const config = require('./config/gulp-config');
 
+//  const babel = require('gulp-babel');
 const babelify = require('babelify');
+
 const browserify = require('browserify');
 const watchify = require('watchify');
 
-const source = require('vinyl-source-stream'); // ->얘를 써야하는 이유 http://programmingsummaries.tistory.com/382
-const buffer = require("vinyl-buffer");
-const merge = require('utils-merge');
-const sourcemaps = require('gulp-sourcemaps')
-const uglify = require("gulp-uglify");
-const rename = require('gulp-rename')
+//  const buffer = require("vinyl-buffer"); //depre
+//  const uglify = require("gulp-uglify");  //depre
 //  const prettyError = require('gulp-prettyerror'); //depre
+
+
+const source = require('vinyl-source-stream'); // ->얘를 써야하는 이유 http://programmingsummaries.tistory.com/382
+
 //  const concat = require('gulp-concat');
+
 //  const modRewirte = require('connect-modrewrite');
-//  const babel = require('gulp-babel');
 
 /* 오류 잡이 */
 //  const plumber = require('gulp-plumber');
 const handleErrors = require('./config/handleErrors');
-const map_error = require('./config/newHandleErrors');
-const notify = require('gulp-notify'); // windows alert
 
 const nodemon = require('gulp-nodemon');
 const browserSync = require('browser-sync');
 
-
+const notify = require('gulp-notify'); // windows alert
 
 gulp.task('default', [
   'browser-sync',
@@ -72,6 +72,20 @@ gulp.task('copy', () => {
       .pipe(gulp.dest(config.dist.html));
 });
 
+/* express가 아닌 그냥 스태틱으로만 쓸 경우
+gulp.task('no-express', () => {
+  return browserSync.init({
+    proxy: 'http://cdn.company.com/',
+    serveStatic: ['./dist'],
+    startPath: './dist/index.html',
+    middleware: [
+      modRewrite([
+        '!\\.\\w+$ public/dist/index.html [L]'  //  없는 경로인 경우 index를 반환
+      ])
+    ]
+  });
+});
+*/
 
 gulp.task('build', () => {
   const optionalB = browserify({
@@ -98,34 +112,8 @@ gulp.task('build', () => {
 });
 
 
-function bundle_js(bundler) {
-  return bundler.bundle()
-    .on('error', handleErrors)
-    .pipe(source('bundle.js'))
-    .pipe(buffer())
-    .pipe(gulp.dest(config.dist.bundle + '/'))
-    .pipe(rename('bundle.min.js'))
-    .pipe(sourcemaps.init({ loadMaps: true }))
-      // capture sourcemaps from transforms
-      .pipe(uglify())
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(config.dist.bundle + '/'))
-    .pipe(browserSync.reload({ stream: true }));
-}
-
-gulp.task('watchify', ['browser-sync'], () => {
-  const args = merge(watchify.args, {
-    debug: true,
-    insertGlobals: true,
-    extensions: ['.js', '.jsx'],
-  });
-  const bundler = watchify(browserify(config.src.js + '/index.jsx', args)).transform(babelify, { presets: ['react', 'es2015'] });
-  bundle_js(bundler);
-  bundler.on('update', () => { bundle_js(bundler); });
-});
-
 gulp.task('watch', () => {
   gulp.watch(config.src.img + '/**/*.jpg', ['copy']).on('change', browserSync.reload);
   gulp.watch(config.src.html + '/**/*.html', ['copy']).on('change', browserSync.reload);
-  //gulp.watch(config.src.js + '/**/*.*', ['watchify']);//.on('change', browserSync.reload);
+  gulp.watch(config.src.js + '/**/*.*', ['build']);//.on('change', browserSync.reload);
 });
